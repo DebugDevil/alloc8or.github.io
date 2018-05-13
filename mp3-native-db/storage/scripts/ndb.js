@@ -77,7 +77,7 @@ function hasComment(native) {
 }
 
 function isNameKnown(native) {
-    return !native["name"].startsWith("_0x");
+    return !native["name"].startsWith("_");
 }
 
 function getNameFromHash(hash) {
