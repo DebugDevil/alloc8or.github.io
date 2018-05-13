@@ -10,7 +10,7 @@ function loadNativeInfo() {
     const file = new XMLHttpRequest();
 
     file.overrideMimeType("application/json");
-    file.open("GET", "https://gist.githubusercontent.com/UnknownModder/71c6091de4746254f7dbd0618606240f/raw/natives.json", true);
+    file.open("GET", "https://github.com/UnknownModder/mp3-nativedb-data/blob/master/natives.json", true);
     file.onreadystatechange = function () {
         if (file.readyState === 4 && file.status === 200) {
             jsonData = JSON.parse(file.responseText);
