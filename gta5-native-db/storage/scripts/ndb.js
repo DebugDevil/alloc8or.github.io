@@ -304,13 +304,13 @@ function generateNativesFile()
                 resultString += paramObj.name + (param != paramsObj.length - 1 ? ", " : "");
             }
 
-            if (nativeObj.jhash !== null)
+            if (nativeObj.jhash !== undefined)
             {
                 resultString += "); } // " + native + " " + nativeObj.jhash + " b" + nativeObj.build + endl;
             }
             else
             {
-                resultString += "); } // " + native + "b" + nativeObj.build + endl;
+                resultString += "); } // " + native + " b" + nativeObj.build + endl;
             }
         }
 
