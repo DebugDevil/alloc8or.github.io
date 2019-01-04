@@ -310,7 +310,7 @@ function generateNativesFile()
             }
             else
             {
-                resultString += "); } // " + native.toString() + "b" + nativeObj.build + endl;
+                resultString += "); } // " + native.toString() + " b" + nativeObj.build + endl;
             }
         }
 
