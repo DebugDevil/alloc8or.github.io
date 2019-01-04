@@ -118,6 +118,7 @@ async function openNamespaceTab(namespace) {
         const jHash = native.jhash;
         const params = native.params;
         const returnType = native.return_type;
+        const build = native.build;
 
         htmlCode += "<li><a class='nativeName' id='func-" + n + "'>" + " 	•  " +
             "<span class='datatype'>" + returnType + " </span>" +
@@ -134,7 +135,7 @@ async function openNamespaceTab(namespace) {
         }
 
         htmlCode += ")  ";
-        htmlCode += "<span class='hash'>//  " + n + (jHash !== undefined ? "  " + jHash : "") + "</span>";
+        htmlCode += "<span class='hash'>//  " + n + (jHash !== undefined ? "  " + jHash : "") + " b" + build + "</span>";
     }
 
     htmlCode += "</ul>";
@@ -303,7 +304,7 @@ function generateNativesFile()
                 resultString += paramObj.name + (param != paramsObj.length - 1 ? ", " : "");
             }
 
-            resultString += "); } // " + native + " " + (nativeObj.jhash != null ? nativeObj.jhash : "") + endl;
+            resultString += "); } // " + native + " " + (nativeObj.jhash != null ? nativeObj.jhash : "")  + " b" + nativeObj.build + endl;
         }
 
         resultString += "}" + endl + endl;
