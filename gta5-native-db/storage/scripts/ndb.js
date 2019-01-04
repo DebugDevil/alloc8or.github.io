@@ -304,7 +304,14 @@ function generateNativesFile()
                 resultString += paramObj.name + (param != paramsObj.length - 1 ? ", " : "");
             }
 
-            resultString += "); } // " + native + (nativeObj.jhash !== null ? " " + nativeObj.jhash + " " : "") + "b" + nativeObj.build + endl;
+            if (nativeObj.jhash !== null)
+            {
+                resultString += "); } // " + native + " " + nativeObj.jhash + " b" + nativeObj.build + endl;
+            }
+            else
+            {
+                resultString += "); } // " + native + " b" + nativeObj.build + endl;
+            }
         }
 
         resultString += "}" + endl + endl;
