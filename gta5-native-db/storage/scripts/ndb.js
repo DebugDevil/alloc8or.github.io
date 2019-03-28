@@ -80,6 +80,10 @@ function isNameKnown(native) {
     return !native["name"].startsWith("_");
 }
 
+function isNativeNamed(native) {
+    return !native["name"].startsWith("_0x");
+}
+
 function getNameFromHash(hash) {
     const nsObjs = getNamespaceObjects();
     let i = 0;
@@ -328,7 +332,7 @@ async function init() {
     }
 
     let namespaces = "";
-    let nsCount = 0, nCount = 0, cCount = 0, kCount = 0;
+    let nsCount = 0, nCount = 0, cCount = 0, kCount = 0, namedCount = 0;
     const v = getNamespaces();
 
     for (let i = 0; i < v.length; i++) {
@@ -341,6 +345,9 @@ async function init() {
             }
             if (isNameKnown(nObjs[j])) {
                 kCount++;
+            }
+            if (isNativeNamed(nObjs[j])) {
+                namedCount++;
             }
         }
 
@@ -358,7 +365,7 @@ async function init() {
     }
 
     const infobox = document.getElementById("infobox");
-    infobox.innerHTML = "<a class='nohover' style='float: left'>Namespaces: " + nsCount + " | " + "Natives: " + nCount + " | " + "Comments: " + cCount + " | " + "Known names: " + kCount + " | " + "</a>" +
+    infobox.innerHTML = "<a class='nohover' style='float: left'>Namespaces: " + nsCount + " | " + "Natives: " + nCount + " | " + "Comments: " + cCount + " | " + "Known names: " + kCount + " (" + namedCount + ")" + " | " + "</a>" +
                         "&nbsp;<a onclick='generateNativesFile()'>Generate natives.h</a>" + infobox.innerHTML;
 
     document.getElementById("expand").addEventListener("click", function () {
