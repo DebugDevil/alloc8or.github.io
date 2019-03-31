@@ -273,7 +273,7 @@ function generateNativesFile()
 
     let date = new Date();
     resultString += "#pragma once" + endl + endl
-        + "// Generated " + date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + endl + endl;
+        + "// Generated " + date.toUTCString() + endl + endl;
 
 
     for (let namespace in jsonData) {
