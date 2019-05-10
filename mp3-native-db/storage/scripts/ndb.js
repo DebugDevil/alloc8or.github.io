@@ -335,7 +335,7 @@ async function init() {
     }
 
     const infobox = document.getElementById("infobox");
-    infobox.innerHTML = "<a class='nohover' style='float: left'>Namespaces: " + nsCount + " | " + "Natives: " + nCount + " | " + "Comments: " + cCount + " | " + "Known names: " + kCount + "</a>" + "&nbsp;<a onclick='generateNativesFile()'>Generate natives.h</a>" + infobox.innerHTML;
+    infobox.innerHTML = "<a class='nohover' style='float: left'>Namespaces: " + nsCount + " | " + "Natives: " + nCount + " | " + "Comments: " + cCount + " | " + "Known names: " + kCount + " | </a>" + "&nbsp;<a onclick='generateNativesFile()'>Generate natives.h</a>" + infobox.innerHTML;
 
     document.getElementById("expand").addEventListener("click", function () {
         const c = getNamespaces();
