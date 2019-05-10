@@ -170,7 +170,7 @@ function openFunctionInformation(namespace, functionHash, functionDeclHTML) {
 
     newHTML += "<p style='white-space: pre-wrap; display: inline;'><br>";
     
-    const unused = false;
+    let unused = false;
     
     if (nativeObj.unused != null && nativeObj.unused != undefined) {
         unused = nativeObj.unused;       
