@@ -114,7 +114,6 @@ async function openNamespaceTab(namespace) {
         const native = natives[i++];
 
         const name = native.name;
-        const comment = native.comment;
         const params = native.params;
         const returnType = native.return_type;
 
@@ -166,7 +165,11 @@ function openFunctionInformation(namespace, functionHash, functionDeclHTML) {
 
     if (hasComment(nativeObj)) {
         newHTML += nativeObj.comment;
-    } else newHTML += "<i>No comment available</i>";
+    }
+    else if (nativeObj.unused) {
+        newHTML += "This native is not used in the scripts.";
+    }
+    else newHTML += "<i>No comment available</i>";
 
     newHTML += "<br><br></p><div id='cpn-" + name + "' class='buttonbox' style='margin-right: 9%;'>Copy Name</div><div id='cph-" + name + "' class='buttonbox'>Copy Hash</div></div></div>";
 
@@ -244,6 +247,54 @@ function copyTextToClipboard(text) {
     document.execCommand('copy');
 
     document.body.removeChild(textArea);
+}
+
+// [============= Native Downloading =============]
+function download(filename, text) {
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    element.setAttribute('download', filename);
+    element.style.display = 'none';
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+}
+const endl = "\r\n";
+function generateNativesFile()
+{
+    let resultString = "";
+    let date = new Date();
+    resultString += "#pragma once" + endl + endl
+        + "// Generated " + date.toUTCString() + endl + endl;
+    for (let namespace in jsonData) {
+        resultString += "namespace " + namespace + endl +
+            "{" + endl;
+        let nsObj = jsonData[namespace];
+        for (let native in nsObj) {
+            let nativeObj = nsObj[native];
+            resultString += "\tstatic " + nativeObj.return_type + " " + nativeObj.name + "(";
+            let paramsObj = nativeObj["params"];
+            for (let param in paramsObj) {
+                let paramObj = paramsObj[param];
+                resultString += paramObj.type + " " + paramObj.name + (param != paramsObj.length - 1 ? ", " : "");
+            }
+            if (nativeObj.return_type == "void") {
+                resultString += ") { invoke<Void>(";
+            }
+            else {
+                resultString += ") { return invoke<" + nativeObj.return_type + ">(";
+            }
+            resultString += native + (paramsObj.length != 0 ? ", " : "");
+            for (let param in paramsObj) {
+                let paramObj = paramsObj[param];
+                resultString += paramObj.name + (param != paramsObj.length - 1 ? ", " : "");
+            }
+            
+            resultString += "); }" + (nativeObj.unused ? " // unused" : "") + endl;
+        }
+        resultString += "}" + endl + endl;
+    }
+    download("natives.h", resultString);
 }
 
 async function init() {
