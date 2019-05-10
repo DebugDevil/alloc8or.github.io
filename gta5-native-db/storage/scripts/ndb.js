@@ -169,9 +169,18 @@ function openFunctionInformation(namespace, functionHash, functionDeclHTML) {
         functionDeclHTML + "<hr>";
 
     newHTML += "<p style='white-space: pre-wrap; display: inline;'><br>";
+    
+    const unused = false;
+    
+    if (nativeObj.unused != null && nativeObj.unused != undefined) {
+        unused = nativeObj.unused;       
+        if (unused) {
+            newHTML += "This native is not used in the scripts.";
+        }
+    }
 
     if (hasComment(nativeObj)) {
-        newHTML += nativeObj.comment;
+        newHTML += (unused ? "<br><br>" : "") + nativeObj.comment;
     } else newHTML += "<i>No comment available</i>";
 
     newHTML += "<br><br></p><div id='cpn-" + name + "' class='buttonbox' style='margin-right: 9%;'>Copy Name</div><div id='cph-" + name + "' class='buttonbox'>Copy Hash</div></div></div>";
@@ -189,7 +198,6 @@ function openFunctionInformation(namespace, functionHash, functionDeclHTML) {
     document.getElementById("cph-" + name).addEventListener("click", function () {
         copyTextToClipboard(functionHash);
     });
-
 }
 
 function closeFunctionInformation(funcElement, namespace, funcHash, funcDeclHTML) {
