@@ -276,7 +276,7 @@ function generateNativesFile()
             let paramsObj = nativeObj["params"];
             for (let param in paramsObj) {
                 let paramObj = paramsObj[param];
-                resultString += paramObj.type + " " + paramObj.name + (param != paramsObj.length - 1 ? ", " : "");
+                resultString += paramObj.type + (nativeObj.type == "" ? + "" : " ") + paramObj.name + (param != paramsObj.length - 1 ? ", " : "");
             }
             if (nativeObj.variadic) {
                 resultString += (nativeObj.variadic ? ")" : "); }") + (nativeObj.unused ? " // unused" : "") + endl;
@@ -285,6 +285,9 @@ function generateNativesFile()
                 resultString += "\t\tnativeInit(" + native + ");" + endl + endl;
                 
                 for (let param in paramsObj) {
+                    if (param == paramsObj.length - 1)
+                        break;
+                    
                     let paramObj = paramsObj[param];
                     resultString += "\t\tnativePush(" + paramObj.name + ");" + endl;
                 }
@@ -308,10 +311,11 @@ function generateNativesFile()
                 else {
                     resultString += ") { return invoke<" + nativeObj.return_type + ">(";
                     resultString += native + (paramsObj.length != 0 ? ", " : "");
-                    for (let param in paramsObj) {
+                }
+                
+                for (let param in paramsObj) {
                         let paramObj = paramsObj[param];
                         resultString += paramObj.name + (param != paramsObj.length - 1 ? ", " : "");
-                    }
                 }
             
                 resultString += "); }" + (nativeObj.unused ? " // unused" : "") + endl;
