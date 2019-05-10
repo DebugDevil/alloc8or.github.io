@@ -276,7 +276,7 @@ function generateNativesFile()
             let paramsObj = nativeObj["params"];
             for (let param in paramsObj) {
                 let paramObj = paramsObj[param];
-                resultString += paramObj.type + (nativeObj.type == "" ? + "" : " ") + paramObj.name + (param != paramsObj.length - 1 ? ", " : "");
+                resultString += paramObj.type + (paramObj.type == "" ? "" : " ") + paramObj.name + (param != paramsObj.length - 1 ? ", " : "");
             }
             if (nativeObj.variadic) {
                 resultString += (nativeObj.variadic ? ")" : "); }") + (nativeObj.unused ? " // unused" : "") + endl;
