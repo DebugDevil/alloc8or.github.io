@@ -181,7 +181,7 @@ function openFunctionInformation(namespace, functionHash, functionDeclHTML) {
 
     if (hasComment(nativeObj)) {
         newHTML += (unused ? "<br><br>" : "") + nativeObj.comment;
-    } else newHTML += "<i>No comment available</i>";
+    } else if (!unused) newHTML += "<i>No comment available</i>";
 
     newHTML += "<br><br></p><div id='cpn-" + name + "' class='buttonbox' style='margin-right: 9%;'>Copy Name</div><div id='cph-" + name + "' class='buttonbox'>Copy Hash</div></div></div>";
 
