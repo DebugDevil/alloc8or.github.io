@@ -310,8 +310,9 @@ function generateNativesFile()
                 }
                 else {
                     resultString += ") { return invoke<" + nativeObj.return_type + ">(";
-                    resultString += native + (paramsObj.length != 0 ? ", " : "");
                 }
+                
+                resultString += native + (paramsObj.length != 0 ? ", " : "");
                 
                 for (let param in paramsObj) {
                         let paramObj = paramsObj[param];
