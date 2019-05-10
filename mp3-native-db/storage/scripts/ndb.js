@@ -163,11 +163,12 @@ function openFunctionInformation(namespace, functionHash, functionDeclHTML) {
 
     newHTML += "<p style='white-space: pre-wrap; display: inline;'><br>";
 
-    if (hasComment(nativeObj)) {
-        newHTML += nativeObj.comment;
-    }
-    else if (nativeObj.unused) {
+    if (nativeObj.unused) {
         newHTML += "This native is not used in the scripts.";
+    }
+    
+    if (hasComment(nativeObj)) {
+        newHTML += (nativeObj.unused ? "<br><br>" : "") + nativeObj.comment;
     }
     else newHTML += "<i>No comment available</i>";
 
