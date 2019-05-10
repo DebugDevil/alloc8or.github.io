@@ -316,6 +316,7 @@ function generateNativesFile()
             
                 resultString += "); }" + (nativeObj.unused ? " // unused" : "") + endl;
             }
+        }
             
         resultString += "}" + endl + endl;
     }
