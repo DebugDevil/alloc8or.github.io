@@ -43,26 +43,50 @@ html {
     color: #FFF;
 }
 .welcome-section {
-    height: 100%;
-    padding-top: 150px;
+    height: 80%;
+    padding-top: 100px;
     text-align: center;
     background: #fff;
 }
 .about-section {
-    height: 100%;
-    padding-top: 150px;
+    height: 33%;
+    padding-top: 100px;
     text-align: center;
     background: #EFDECD;
 }
-.whatwedo-section {
-    height: 100%;
-    padding-top: 150px;
+.sdk-section {
+    height: 33%;
+    padding-top: 100px;
     text-align: center;
     background: #fff;
 }
-.contact-section {
-    height: 100%;
-    padding-top: 150px;
+.donate-section {
+    height: 45%;
+    padding-top: 100px;
+    text-align: center;
+    background: #EFDECD;
+}
+.requirements-section {
+    height: 33%;
+    padding-top: 100px;
+    text-align: center;
+    background: #fff;
+}
+.supportedversions-section {
+    height: 40%;
+    padding-top: 100px;
+    text-align: center;
+    background: #EFDECD;
+}
+.downloadandsupport-section {
+    height: 95%;
+    padding-top: 100px;
+    text-align: center;
+    background: #fff;
+}
+.installation-section {
+    height: 33%;
+    padding-top: 100px;
     text-align: center;
     background: #EFDECD;
 }
