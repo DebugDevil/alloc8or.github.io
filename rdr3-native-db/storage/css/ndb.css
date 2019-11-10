@@ -1,14 +1,14 @@
 @font-face {
-    font-family: 'PricedownBl-Regular';
+    font-family: 'Redemption';
     font-style: normal;
     font-weight: normal;
-    src: local('PricedownBl-Regular'), url('../fonts/pricedown bl.woff') format('woff');
+    src: local('Redemption'), url('../fonts/Redemption.woff2') format('woff2');
 }
 
 #title {
     color: ghostwhite;
     font-size: 36px;
-    font-family: 'PricedownBl-Regular', sans;
+    font-family: 'Redemption', sans;
     text-align: center;
     font-variant-ligatures: none;
 }
@@ -119,7 +119,7 @@ a:link {
 .buttonbox {
     background: darkorange;
     color: black;
-    font-family: "PricedownBl-Regular", sans;
+    font-family: "Redemption", sans;
     font-variant-ligatures: none;
     position: relative;
     float: right;
