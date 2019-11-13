@@ -290,15 +290,30 @@ function generateNativesFile()
         let nsObj = jsonData[namespace];
         for (let native in nsObj) {
             let nativeObj = nsObj[native];
-            resultString += "\tstatic " + nativeObj.return_type + " " + nativeObj.name + "(";
 
+            if (nativeObj.variadic) {
+                resultString += "\ttemplate<typename... Args> static " + nativeObj.return_type + " " + nativeObj.name + "(";
+            }
+            else {
+                resultString += "\tstatic " + nativeObj.return_type + " " + nativeObj.name + "(";
+            }          
 
             let paramsObj = nativeObj["params"];
             for (let param in paramsObj) {
                 let paramObj = paramsObj[param];
 
-                resultString += paramObj.type + " " + paramObj.name + (param != paramsObj.length - 1 ? ", " : "");
-            }
+                if (nativeObj.variadic) {
+                    if (param == paramsObj.length - 1) {
+                        resultString += "Args... args";
+                    }
+                    else {
+                        resultString += paramObj.type + " " + paramObj.name + (param != paramsObj.length - 1 ? ", " : "");
+                    }
+                }
+                else {
+                    resultString += paramObj.type + " " + paramObj.name +  (param != paramsObj.length - 1 ? ", " : "");
+                }
+            }      
 
             if (nativeObj.return_type == "void") {
                 resultString += ") { invoke<Void>(";
@@ -312,7 +327,17 @@ function generateNativesFile()
             for (let param in paramsObj) {
                 let paramObj = paramsObj[param];
 
-                resultString += paramObj.name + (param != paramsObj.length - 1 ? ", " : "");
+                if (nativeObj.variadic) {
+                    if (param == paramsObj.length - 1) {
+                        resultString += "args...";
+                    }
+                    else {
+                        resultString += paramObj.name + (param != paramsObj.length - 1 ? ", " : "");
+                    }
+                }
+                else {
+                    resultString += paramObj.name + (param != paramsObj.length - 1 ? ", " : "");
+                }
             }
             
             resultString += "); } // " + native.toString() + " b" + nativeObj.build + endl;
