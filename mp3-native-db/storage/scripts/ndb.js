@@ -266,7 +266,7 @@ function generateNativesFile()
     let resultString = "";
     let date = new Date();
     resultString += "#pragma once" + endl + endl
-        + "// Generated " + date.toUTCString() + endl + endl;
+        + "// Generated " + date.toUTCString() + endl + "// https://unknownmodder.github.io/mp3-native-db/" + endl + endl;
     for (let namespace in jsonData) {
         resultString += "namespace " + namespace + endl +
             "{" + endl;
