@@ -10,7 +10,7 @@ function loadNativeInfo() {
     const file = new XMLHttpRequest();
 
     file.overrideMimeType("application/json");
-    file.open("GET", "https://raw.githubusercontent.com/UnknownModder/rdr3-nativedb-data/master/natives.json", true);
+    file.open("GET", "https://raw.githubusercontent.com/alloc8or/rdr3-nativedb-data/master/natives.json", true);
     file.onreadystatechange = function () {
         if (file.readyState === 4 && file.status === 200) {
             jsonData = JSON.parse(file.responseText);
@@ -280,7 +280,7 @@ function generateNativesFile()
 
     let date = new Date();
     resultString += "#pragma once" + endl + endl
-        + "// Generated " + date.toUTCString() + endl + "// https://unknownmodder.github.io/rdr3-native-db/" + endl + endl;
+        + "// Generated " + date.toUTCString() + endl + "// https://alloc8or.github.io/rdr3-native-db/" + endl + endl;
 
 
     for (let namespace in jsonData) {
