@@ -280,7 +280,7 @@ function generateNativesFile()
 
     let date = new Date();
     resultString += "#pragma once" + endl + endl
-        + "// Generated " + date.toUTCString() + endl + endl;
+        + "// Generated " + date.toUTCString() + endl + "// https://unknownmodder.github.io/rdr3-native-db/" + endl + endl;
 
 
     for (let namespace in jsonData) {
