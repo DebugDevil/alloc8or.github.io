@@ -10,7 +10,7 @@ function loadNativeInfo() {
     const file = new XMLHttpRequest();
 
     file.overrideMimeType("application/json");
-    file.open("GET", "https://raw.githubusercontent.com/UnknownModder/gta5-nativedb-data/master/natives.json", true);
+    file.open("GET", "https://raw.githubusercontent.com/alloc8or/gta5-nativedb-data/master/natives.json", true);
     file.onreadystatechange = function () {
         if (file.readyState === 4 && file.status === 200) {
             jsonData = JSON.parse(file.responseText);
@@ -281,7 +281,7 @@ function generateNativesFile()
 
     let date = new Date();
     resultString += "#pragma once" + endl + endl
-        + "// Generated " + date.toUTCString() + endl + "// https://unknownmodder.github.io/gta5-native-db/" + endl + endl;
+        + "// Generated " + date.toUTCString() + endl + "// https://alloc8or.github.io/gta5-native-db/" + endl + endl;
 
 
     for (let namespace in jsonData) {
