@@ -281,7 +281,7 @@ function generateNativesFile()
 
     let date = new Date();
     resultString += "#pragma once" + endl + endl
-        + "// Generated " + date.toUTCString() + endl + "// https://alloc8or.github.io/gta5-native-db/" + endl + endl;
+        + "// Generated " + date.toUTCString() + endl + "// https://alloc8or.github.io/gta5/nativedb/" + endl + endl;
 
 
     for (let namespace in jsonData) {
