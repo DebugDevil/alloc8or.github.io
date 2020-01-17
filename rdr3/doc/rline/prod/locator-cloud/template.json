@@ -1,0 +1,74 @@
+{
+	"UgcTemplates": [{
+		"UgcContentType": "rdr2mission",
+		"UgcCategory": "none",
+		"UgcQueryName": "ContentData",
+		"UrlTemplate": "https://prod-cdnugc-rockstargames.akamaized.net/ugc/rdr2mission/{contentId}/pcros/{fileid}_{fileversion}_{lang}.{ext}"
+	},
+	{
+		"UgcContentType": "rdr2mission",
+		"UgcCategory": "none",
+		"UgcQueryName": "ContentThumbnail",
+		"UrlTemplate": "https://prod-cdnugc-rockstargames.akamaized.net/ugc/rdr2mission/{contentId}/pcros/{fileid}_{fileversion}.{ext}"
+	},
+	{
+		"UgcContentType": "rdr2mission",
+		"UgcCategory": "none",
+		"UgcQueryName": "GetContentByContentId",
+		"UrlTemplate": "https://prod-cdnugc-rockstargames.akamaized.net/ugc/rdr2mission/{contentId}/{fileId}_{fileVersion}_{lang}.json"
+	},
+	{
+		"UgcContentType": "rdr2mission",
+		"UgcCategory": "rstar",
+		"UgcQueryName": "ContentData",
+		"UrlTemplate": "https://prod-rdr2-fc-rockstargames.akamaized.net/ugc/rdr2mission/{contentId}/pcros/{fileid}_{fileversion}_{lang}.{ext}"
+	},
+	{
+		"UgcContentType": "rdr2mission",
+		"UgcCategory": "rstar",
+		"UgcQueryName": "ContentThumbnail",
+		"UrlTemplate": "https://prod-rdr2-fc-rockstargames.akamaized.net/ugc/rdr2mission/{contentId}/pcros/{fileid}_{fileversion}.{ext}"
+	},
+	{
+		"UgcContentType": "rdr2mission",
+		"UgcCategory": "rstar",
+		"UgcQueryName": "GetContentByCategory",
+		"UrlTemplate": "https://prod-rdr2-fc-rockstargames.akamaized.net/ugc/rdr2mission/GetContentByCategory/rstar/pcros/{lang}.{ext}"
+	},
+	{
+		"UgcContentType": "rdr2mission",
+		"UgcCategory": "rstar",
+		"UgcQueryName": "GetContentByContentId",
+		"UrlTemplate": "https://prod-rdr2-fc-rockstargames.akamaized.net/ugc/rdr2mission/{contentId}/pcros/{lang}.{ext}"
+	},
+	{
+		"UgcContentType": "rdr2photo",
+		"UgcCategory": "none",
+		"UgcQueryName": "GetContentByContentId",
+		"UrlTemplate": "https://prod-cdnugc-rockstargames.akamaized.net/ugc/rdr2photo/{contentId}/{fileId}_{fileVersion}.jpg"
+	},
+	{
+		"UgcContentType": "rdr2playlist",
+		"UgcCategory": "rstar",
+		"UgcQueryName": "GetContentByCategory",
+		"UrlTemplate": "https://prod-rdr2-fc-rockstargames.akamaized.net/ugc/rdr2playlist/GetContentByCategory/rstar/pcros/en.{ext}"
+	},
+	{
+		"UgcContentType": "rdr2playlist",
+		"UgcCategory": "rstar",
+		"UgcQueryName": "GetContentByContentId",
+		"UrlTemplate": "https://prod-rdr2-fc-rockstargames.akamaized.net/ugc/rdr2playlist/{contentId}/pcros/en.{ext}"
+	},
+	{
+		"UgcContentType": "rdr2playlist",
+		"UgcCategory": "story",
+		"UgcQueryName": "GetContentByCategory",
+		"UrlTemplate": "https://prod-rdr2-fc-rockstargames.akamaized.net/ugc/rdr2playlist/GetContentByCategory/story/pcros/en.{ext}"
+	},
+	{
+		"UgcContentType": "rdr2playlist",
+		"UgcCategory": "story",
+		"UgcQueryName": "GetContentByContentId",
+		"UrlTemplate": "https://prod-rdr2-fc-rockstargames.akamaized.net/ugc/rdr2playlist/{contentId}/pcros/en.{ext}"
+	}]
+}
