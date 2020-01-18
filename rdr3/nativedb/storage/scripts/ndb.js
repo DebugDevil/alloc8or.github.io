@@ -468,7 +468,7 @@ async function init() {
 			{
 				openNamespaceTab(ns);	
 				openFunctionInformation(ns, n, document.getElementById("func-" + n).innerHTML.substring(3));
-				document.getElementById("func-" + n).scrollIntoView();
+				document.getElementById("func-" + n).scrollIntoView({block: "center"});
 			}
 		}		
 	}
