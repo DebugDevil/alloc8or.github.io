@@ -86,7 +86,6 @@ function isNativeNamed(native) {
 
 function getNameFromHash(hash) {
     const nsObjs = getNamespaceObjects();
-    let i = 0;
 
     for (let ns in jsonData) {
         for (let native in jsonData[ns]) {
@@ -95,6 +94,22 @@ function getNameFromHash(hash) {
             }
         }
     }
+	
+	return null;
+}
+
+function getNamespaceFromHash(hash) {
+    const nsObjs = getNamespaceObjects();
+
+    for (let ns in jsonData) {
+        for (let native in jsonData[ns]) {
+            if (native === hash) {
+                return ns;
+            }
+        }
+    }
+	
+	return null;
 }
 
 function closeNamespaceTab(namespace) {
@@ -108,6 +123,10 @@ function closeNamespaceTab(namespace) {
 
 async function openNamespaceTab(namespace) {
     const ele = document.getElementById("ns-" + namespace);
+	
+	if (ele == null || ele == undefined)
+		return;
+	
     const natives = getNativeObjects(namespace);
 
     let htmlCode = ele.parentElement.innerHTML + "<ul id='na-" + namespace + "' class='natives'>";
@@ -183,7 +202,7 @@ function openFunctionInformation(namespace, functionHash, functionDeclHTML) {
         newHTML += (unused ? "<br><br>" : "") + nativeObj.comment;
     } else if (!unused) newHTML += "<i>No comment available</i>";
 
-    newHTML += "<br><br></p><div id='cpn-" + name + "' class='buttonbox' style='margin-right: 9%;'>Copy Name</div><div id='cph-" + name + "' class='buttonbox'>Copy Hash</div></div></div>";
+    newHTML += "<br><br></p><div id='cpn-" + name + "' class='buttonbox' style='margin-right: 18%;'>Copy Name</div><div id='cph-" + name + "' class='buttonbox' style='margin-right: 9%;'>Copy Hash</div><div id='cpl-" + name + "' class='buttonbox'>Copy Link</div></div></div>";
 
     ele.innerHTML += newHTML;
 
@@ -197,6 +216,10 @@ function openFunctionInformation(namespace, functionHash, functionDeclHTML) {
 
     document.getElementById("cph-" + name).addEventListener("click", function () {
         copyTextToClipboard(functionHash);
+    });
+	
+	document.getElementById("cpl-" + name).addEventListener("click", function () {
+        copyTextToClipboard("https://alloc8or.github.io/gta5/nativedb?n=" + functionHash);
     });
 }
 
@@ -332,6 +355,10 @@ function generateNativesFile()
     download("natives.h", resultString);
 }
 
+function getUrlParam(param) {
+	return new URLSearchParams(window.location.search).get(param);
+}
+
 async function init() {
     loadNativeInfo();
 
@@ -401,5 +428,31 @@ async function init() {
     });
 
     document.getElementById("loading").innerHTML = "";
-
+	
+	const ns = getUrlParam("ns");
+	
+	//console.log(ns);
+	
+	if (ns !== null)
+	{
+		openNamespaceTab(ns);
+	}
+	else
+	{
+		const n = getUrlParam("n");
+			
+		//console.log(n);
+	
+		if (n !== null)
+		{
+			const ns = getNamespaceFromHash(n);
+			
+			if (ns !== null)
+			{
+				openNamespaceTab(ns);	
+				openFunctionInformation(ns, n, document.getElementById("func-" + n).innerHTML.substring(3));
+				document.getElementById("func-" + n).scrollIntoView();
+			}
+		}		
+	}
 }
