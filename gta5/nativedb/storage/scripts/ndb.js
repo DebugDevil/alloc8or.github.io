@@ -451,6 +451,8 @@ async function init() {
 		{
 			if (!isNamespaceTabOpened(ns))
 				openNamespaceTab(ns);
+			
+			document.getElementById("ns-" + ns).scrollIntoView();
 		}	
 	}
 	else
@@ -465,8 +467,11 @@ async function init() {
 			
 			if (ns !== null)
 			{
-				openNamespaceTab(ns);	
+				if (!isNamespaceTabOpened(ns))
+					openNamespaceTab(ns);
+				
 				openFunctionInformation(ns, n, document.getElementById("func-" + n).innerHTML.substring(3));
+				
 				document.getElementById("func-" + n).scrollIntoView({block: "center"});
 			}
 		}		
