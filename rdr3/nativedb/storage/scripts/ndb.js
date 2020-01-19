@@ -452,7 +452,23 @@ async function init() {
 	
 	if (ns !== null)
 	{
-		openNamespaceTab(ns);
+		if (ns === "all")
+		{
+			const c = getNamespaces();
+			
+			for (let _ns in c)
+			{
+				let name = c[_ns];
+
+				if (!isNamespaceTabOpened(name))
+					openNamespaceTab(name);
+			}
+		}
+		else
+		{
+			if (!isNamespaceTabOpened(ns))
+				openNamespaceTab(ns);
+		}	
 	}
 	else
 	{
