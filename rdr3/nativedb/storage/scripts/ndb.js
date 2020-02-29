@@ -382,6 +382,32 @@ async function init() {
     while (jsonData === undefined) {
         await sleep(1);
     }
+	
+	const req = new XMLHttpRequest();
+	
+	let lastupdated;
+
+    req.overrideMimeType("application/json");
+    req.open("GET", "https://api.github.com/repos/alloc8or/rdr3-nativedb-data", true);
+    req.onreadystatechange = function () {
+        if (req.readyState === 4 && req.status === 200) {
+            lastupdated = JSON.parse(req.responseText).updated_at;
+        }
+    };
+
+    req.send(null);
+	
+	let counter = 0;
+	while (lastupdated === undefined)
+	{
+		if (++counter >= 10000)
+		{
+			lastupdated = "???";
+			break;
+		}
+		
+        await sleep(1);
+    }
 
     let namespaces = "";
     let nsCount = 0, nCount = 0, cCount = 0, kCount = 0, namedCount = 0;
@@ -417,7 +443,8 @@ async function init() {
     }
 
     const infobox = document.getElementById("infobox");
-    infobox.innerHTML = "<a class='nohover' style='float: left'>Namespaces: " + nsCount + " | " + "Natives: " + nCount + " | " + "Comments: " + cCount + " | " + "Known names: " + kCount + " (" + namedCount + ")" + " | " + "</a>" +
+    infobox.innerHTML = "<a class='nohover' style='float: left'>Namespaces: " + nsCount + " | " + "Natives: " + nCount + " | " + "Comments: " + cCount + " | " + "Known names: " + kCount + " (" + namedCount + ")" + " | " +
+						"Last updated: " + lastupdated + " | " + "</a>" +
                         "&nbsp;<a onclick='generateNativesFile()'>Generate natives.h</a>" + infobox.innerHTML;
 
     document.getElementById("expand").addEventListener("click", function () {
