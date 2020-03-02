@@ -388,10 +388,10 @@ async function init() {
 	let lastupdated;
 
     req.overrideMimeType("application/json");
-    req.open("GET", "https://api.github.com/repos/alloc8or/rdr3-nativedb-data", true);
+    req.open("GET", "https://api.github.com/repos/alloc8or/rdr3-nativedb-data/branches/master", true);
     req.onreadystatechange = function () {
         if (req.readyState === 4 && req.status === 200) {
-            lastupdated = JSON.parse(req.responseText).updated_at;
+            lastupdated = JSON.parse(req.responseText).commit.commit.committer.date;
         }
     };
 
