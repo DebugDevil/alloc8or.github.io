@@ -1,0 +1,330 @@
+{
+	"TelemetryConfig": {
+		"IsTelemetryEnabled": true
+	},
+	"Metrics": [{
+		"enabled": true,
+		"name": "ADD_ITEMS"
+	},
+	{
+		"enabled": true,
+		"name": "ADD_ITEM_INFO"
+	},
+	{
+		"enabled": true,
+		"name": "CAMP_SUPPLIES"
+	},
+	{
+		"enabled": true,
+		"name": "CRAFT_ITEM"
+	},
+	{
+		"enabled": true,
+		"name": "CRAFT_ITEM_INFO"
+	},
+	{
+		"enabled": true,
+		"name": "CRAFT_ITEM_costUnlocks"
+	},
+	{
+		"enabled": true,
+		"name": "CREATE_CAMP"
+	},
+	{
+		"enabled": true,
+		"name": "DEED_OVER_FLOAT_STAT"
+	},
+	{
+		"enabled": true,
+		"name": "DEED_OVER_INT_STAT"
+	},
+	{
+		"enabled": true,
+		"name": "DEED_O"
+	},
+	{
+		"enabled": true,
+		"name": "DEED_OVER_unlocks"
+	},
+	{
+		"enabled": true,
+		"name": "ACHE"
+	},
+	{
+		"enabled": true,
+		"name": "GAME_PROGRESS"
+	},
+	{
+		"enabled": true,
+		"name": "GAMESERVER_TXN"
+	},
+	{
+		"enabled": true,
+		"name": "GANG_SHARES"
+	},
+	{
+		"enabled": true,
+		"name": "GOAL_DATA"
+	},
+	{
+		"enabled": true,
+		"name": "header"
+	},
+	{
+		"enabled": true,
+		"name": "MATCH_O"
+	},
+	{
+		"enabled": true,
+		"name": "MIS_O"
+	},
+	{
+		"enabled": true,
+		"name": "SHOP_EXIT"
+	},
+	{
+		"enabled": true,
+		"name": "SHOP_PURCHASE"
+	},
+	{
+		"enabled": true,
+		"name": "SHOP_SELL"
+	},
+	{
+		"enabled": true,
+		"name": "LOAD_SCREEN"
+	},
+	{
+		"enabled": true,
+		"name": "NET_CAMP"
+	},
+	{
+		"enabled": true,
+		"name": "POSSE"
+	},
+	{
+		"enabled": true,
+		"name": "MISSION_ILO_OPTION"
+	},
+	{
+		"enabled": true,
+		"name": "HOGTIE"
+	},
+	{
+		"enabled": true,
+		"name": "FAST_TRAVEL"
+	},
+	{
+		"enabled": true,
+		"name": "STALL_DETECTED"
+	},
+	{
+		"enabled": true,
+		"name": "DAILY_CHALLENGE"
+	},
+	{
+		"enabled": true,
+		"name": "NOTORIETY"
+	},
+	{
+		"enabled": true,
+		"name": "PARLEY_FEUD"
+	},
+	{
+		"enabled": false,
+		"name": "UNLOCKS"
+	},
+	{
+		"enabled": false,
+		"name": "UNLOCK_INFO"
+	},
+	{
+		"enabled": true,
+		"name": "ALERT"
+	},
+	{
+		"enabled": true,
+		"name": "MPSUB"
+	},
+	{
+		"enabled": true,
+		"name": "DEED_S_F"
+	},
+	{
+		"enabled": true,
+		"name": "FORBIDDEN_MISSION_INV"
+	},
+	{
+		"enabled": true,
+		"name": "GAMESERVER_PDC_STATE"
+	},
+	{
+		"enabled": true,
+		"name": "GAMESERVER_PDC_FAILURE"
+	},
+	{
+		"enabled": true,
+		"name": "POKER_OVER"
+	},
+	{
+		"enabled": true,
+		"name": "INVENTORY_POOL"
+	},
+	{
+		"enabled": true,
+		"name": "EMOTE"
+	},
+	{
+		"enabled": true,
+		"name": "DEFENSIVE"
+	},
+	{
+		"enabled": true,
+		"name": "CAM_MODE"
+	},
+	{
+		"enabled": true,
+		"name": "END_POINT"
+	},
+	{
+		"enabled": true,
+		"name": "MENU_NAV"
+	},
+	{
+		"enabled": true,
+		"name": "GOLD_STORE"
+	},
+	{
+		"enabled": true,
+		"name": "DIG"
+	},
+	{
+		"enabled": true,
+		"name": "YETI_OTHER"
+	},
+	{
+		"enabled": true,
+		"name": "NET_NO_MEMORY"
+	},
+	{
+		"enabled": true,
+		"name": "HUB_NAV"
+	},
+	{
+		"enabled": true,
+		"name": "COUPON"
+	},
+	{
+		"enabled": true,
+		"name": "ROLE_MOONSHINER"
+	},
+	{
+		"enabled": true,
+		"name": "STORED_ITEM_INFO"
+	},
+	{
+		"enabled": true,
+		"name": "MOONSHINE_BREW"
+	},
+	{
+		"enabled": true,
+		"name": "PED_POPULATION"
+	},
+	{
+		"enabled": true,
+		"name": "QUICK_S"
+	},
+	{
+		"enabled": true,
+		"name": "MULTIPLIER_INFO"
+	},
+	{
+		"enabled": true,
+		"name": "FAILED_SPAWN_INFO"
+	},
+	{
+		"enabled": true,
+		"name": "AWARD"
+	},
+	{
+		"enabled": true,
+		"name": "BANDWIDTH"
+	},
+	{
+		"enabled": true,
+		"name": "BOUNTY_TARGET"
+	},
+	{
+		"enabled": true,
+		"name": "CAMP_DONATE"
+	},
+	{
+		"enabled": true,
+		"name": "CUSTOM"
+	},
+	{
+		"enabled": true,
+		"name": "GANG"
+	},
+	{
+		"enabled": true,
+		"name": "GUN_LOCKER"
+	},
+	{
+		"enabled": true,
+		"name": "PERSONAL_VEHICLE"
+	},
+	{
+		"enabled": true,
+		"name": "PHOTO"
+	},
+	{
+		"enabled": true,
+		"name": "PLATFORM"
+	},
+	{
+		"enabled": true,
+		"name": "PLAYER_MENU_PIN"
+	},
+	{
+		"enabled": true,
+		"name": "PRISON"
+	},
+	{
+		"enabled": true,
+		"name": "ROLE_BOUNTY"
+	},
+	{
+		"enabled": true,
+		"name": "ROLE_COLLECTOR"
+	},
+	{
+		"enabled": true,
+		"name": "ROLE_PROGRESSION"
+	},
+	{
+		"enabled": true,
+		"name": "ROLE_TOKEN_TXN"
+	},
+	{
+		"enabled": true,
+		"name": "ROLE_TRADER"
+	},
+	{
+		"enabled": true,
+		"name": "SEASON_RANK"
+	},
+	{
+		"enabled": true,
+		"name": "QUICK_S"
+	},
+	{
+		"enabled": true,
+		"name": "NET_MODULE"
+	}],
+	"TargetEnvironment": {
+		"Platform": "ggp",
+		"Version": 54,
+		"Title": "rdr2"
+	}
+}
