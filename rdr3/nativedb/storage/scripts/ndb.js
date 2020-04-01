@@ -297,7 +297,7 @@ function download(filename, text) {
 }
 
 const endl = "\r\n";
-function generateNativesFile()
+function generateNativesFile(bWithComments)
 {
     let resultString = "";
 
@@ -313,6 +313,12 @@ function generateNativesFile()
         let nsObj = jsonData[namespace];
         for (let native in nsObj) {
             let nativeObj = nsObj[native];
+			
+			if (bWithComments && nativeObj.comment !== "")
+			{
+				let commentStr = nativeObj.comment.replace(/\n/g, '\n\t');
+				resultString += "\t/*" + endl + "\t" + commentStr + endl + "\t*/" + endl;
+			}
 
             if (nativeObj.variadic) {
                 resultString += "\ttemplate<typename... Args> static " + nativeObj.return_type + " " + nativeObj.name + "(";
@@ -445,7 +451,7 @@ async function init() {
     const infobox = document.getElementById("infobox");
     infobox.innerHTML = "<a class='nohover' style='float: left'>Namespaces: " + nsCount + " | " + "Natives: " + nCount + " | " + "Comments: " + cCount + " | " + "Known names: " + kCount + " (" + namedCount + ")" + " | " +
 						"Last updated: " + lastupdated + " | " + "</a>" +
-                        "&nbsp;<a onclick='generateNativesFile()'>Generate natives.h</a>" + infobox.innerHTML;
+                        "&nbsp;<a onclick='generateNativesFile(false)'>Generate natives.h</a> | <a onclick='generateNativesFile(true)'>Generate natives.h (with comments)</a>" + infobox.innerHTML;
 
     document.getElementById("expand").addEventListener("click", function () {
         const c = getNamespaces();
