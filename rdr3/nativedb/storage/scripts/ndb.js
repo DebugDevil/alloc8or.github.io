@@ -314,11 +314,11 @@ function generateNativesFile(bWithComments)
         for (let native in nsObj) {
             let nativeObj = nsObj[native];
 			
-			if (bWithComments && nativeObj.comment !== "")
-			{
-				let commentStr = nativeObj.comment.replace(/\n/g, '\n\t');
-				resultString += "\t/*" + endl + "\t" + commentStr + endl + "\t*/" + endl;
-			}
+            if (bWithComments && nativeObj.comment !== "")
+            {
+                let commentStr = nativeObj.comment.replace(/\n/g, '\n\t');
+                resultString += "\t/*" + endl + "\t" + commentStr + endl + "\t*/" + endl;
+            }
 
             if (nativeObj.variadic) {
                 resultString += "\ttemplate<typename... Args> static " + nativeObj.return_type + " " + nativeObj.name + "(";
