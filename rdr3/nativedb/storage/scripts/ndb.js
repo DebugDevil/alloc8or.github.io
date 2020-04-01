@@ -316,8 +316,12 @@ function generateNativesFile(bWithComments)
 			
             if (bWithComments && nativeObj.comment !== "")
             {
-                let commentStr = nativeObj.comment.replace(/\n/g, '\n\t');
-                resultString += "\t/*" + endl + "\t" + commentStr + endl + "\t*/" + endl;
+                let commentStr = nativeObj.comment;
+                let lines = commentStr.split(/\r?\n/);
+                for (let i = 0; i < lines.length; i++)
+                {
+                    resultString += "\t// " + lines[i] + endl;
+                }
             }
 
             if (nativeObj.variadic) {
