@@ -1,25 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ms="0" xmlns="TitlePromotion">
-
   <Status>1</Status>
-
   <Result>
-
     <Promotions count="5" lut="1576100011">
-
       <P n="SP_GAME_CONTENT_CROSS_PROMOTION_REVOLVER" v="0" gm="0" />
-
       <P n="SP_GAME_CONTENT_CROSS_PROMOTION_HATCHET" v="0" gm="0" />
-
       <P n="AWARD_MP_GAME_CONTENT_CROSS_PROMOTION_MASK" v="0" gm="1" />
-
       <P n="AWARD_MP_GAME_CONTENT_CROSS_PROMOTION_CARDS" v="0" gm="1" />
-
       <P n="AWARD_MP_GAME_CONTENT_CROSS_PROMOTION_NAVY_REVOLVER" v="0" gm="1" />
-
     </Promotions>
-
   </Result>
-
 </Response>
