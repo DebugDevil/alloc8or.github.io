@@ -400,8 +400,11 @@ async function init() {
     req.overrideMimeType("application/json");
     req.open("GET", "https://api.github.com/repos/alloc8or/rdr3-nativedb-data/branches/master", true);
     req.onreadystatechange = function () {
-        if (req.readyState === 4 && req.status === 200) {
-            lastupdated = JSON.parse(req.responseText).commit.commit.committer.date;
+        if (req.readyState === 4) {
+			if (req.status === 200) {
+                lastupdated = JSON.parse(req.responseText).commit.commit.committer.date;
+			}
+			else { lastupdated = "???"; }
         }
     };
 
@@ -410,7 +413,7 @@ async function init() {
 	let counter = 0;
 	while (lastupdated === undefined)
 	{
-		if (++counter >= 10000)
+		if (++counter >= 5000)
 		{
 			lastupdated = "???";
 			break;
