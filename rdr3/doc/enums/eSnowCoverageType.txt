@@ -1,7 +1,0 @@
-enum class eSnowCoverageType
-{
-	Primary,
-	Secondary,
-	Xmas,
-	XmasSecondary // since b1232
-};
